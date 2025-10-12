@@ -31,4 +31,9 @@ program
 	.command('status')
 	.action(() => statusPackages());
 
+program
+	.command('init')
+	.description('Initialize a new grabit project')
+	.action(() => import('../lib/init.js').then(m => m.initProject()));
+
 program.parse();
