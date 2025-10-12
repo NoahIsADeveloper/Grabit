@@ -1,0 +1,16 @@
+{
+	"name": "grabit",
+	"version": "0.1.0",
+	"bin": {
+		"grabit": "./bin/grabit.js"
+	},
+	"type": "module",
+	"dependencies": {
+		"@iarna/toml": "^2.2.5",
+		"commander": "^10.0.1",
+		"fs-extra": "^11.3.2",
+		"glob": "^11.0.3",
+		"simple-git": "^3.28.0",
+		"toml": "^3.0.0"
+	}
+}
