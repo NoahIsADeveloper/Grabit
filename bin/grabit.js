@@ -36,4 +36,9 @@ program
 	.description('Initialize a new grabit project')
 	.action(() => import('../lib/init.js').then(m => m.initProject()));
 
+program
+	.command('remove <package>')
+	.description('Remove a package and its included files')
+	.action((pkgName) => import('../lib/remove.js').then(m => m.removePackage(pkgName)));
+
 program.parse();
