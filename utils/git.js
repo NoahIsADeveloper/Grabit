@@ -1,5 +1,4 @@
 import simpleGit from 'simple-git';
-import path from 'path';
 
 export const git = simpleGit();
 
