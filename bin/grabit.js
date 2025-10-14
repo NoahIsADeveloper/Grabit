@@ -45,12 +45,13 @@ program
 program
 	.command('remove <package>')
 	.description('Remove a package and its included files')
-	.action((pkgName) => import('../lib/remove.js').then(m => m.removePackage(pkgName)));
+	.option('--keep', 'Keep the package in grabit.toml')
+	.action((pkgName, options) => import('../lib/remove.js').then(m => m.removePackage(pkgName, options)));
 
 program
-	.command('tweak <action> [package] [key] [value]')
+	.command('tweak <package> <action> [key] [value]')
 	.description('Edit per-package settings in grabit.toml')
-	.action((action, pkg, key, value) => {
+	.action((pkg, action, key, value) => {
 		import('../lib/tweak.js').then(mod =>
 			mod.handleTweak(action, pkg, key, value)
 		);
