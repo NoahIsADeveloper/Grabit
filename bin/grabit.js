@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { fetchPackage } from '../lib/fetch.js';
 import { statusPackages } from '../lib/status.js';
 
 const program = new Command();
@@ -21,6 +20,15 @@ program
 	.action((repo, options) => {
 		import('../lib/add.js').then(mod => mod.addPackage(repo, options));
 	});
+
+program
+  .command('upgrade <package>')
+  .description('Upgrade a package to the latest commit')
+  .option('--fetch', 'Fetch the package immediately after upgrading')
+  .action(async (pkgName, options) => {
+    const { upgradePackage } = await import('../lib/upgrade.js');
+    await upgradePackage(pkgName, options);
+  });
 
 program
 	.command('fetch [package]')
