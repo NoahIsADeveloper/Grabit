@@ -28,6 +28,7 @@ program
 	.option('--all', 'Fetch all packages')
 	.option('--path <path>', 'Override path for this fetch')
 	.option('--branch <branch>', 'Override branch')
+	.option('--latest', 'Update package to latest commit')
 	.option('--include <patterns>', 'Comma-separated include paths')
 	.option('--cleanup <patterns>', 'Comma-separated cleanup patterns')
 	.action((pkg, options) => import('../lib/fetch.js')
